@@ -10,9 +10,9 @@ namespace EURISTest.Controllers
   {
     private readonly IProductService _productService;
     
-    public ProductController(IProductService _productManager)
+    public ProductController(IProductService productService)
     {
-      _productService = _productManager;      
+      _productService = productService;      
     }
 
     // GET: Product
