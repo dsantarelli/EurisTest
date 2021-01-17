@@ -1,0 +1,50 @@
+﻿@model EURISTest.Models.Product.ProductEditViewModel
+@{ ViewBag.Title = "Edit Product"; }
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="euris-panel">
+        <div class="header">
+            Edit Product
+        </div>
+        <div class="toolbar">
+            <input type="submit" value="Save" class="button button-success" />
+            <input type="button" value="Cancel" class="button button-primary" onclick="location.href='@Url.Action("Index")'" />
+        </div>
+        <div class="body">
+            <div>
+                @Html.LabelFor(model => model.Code)
+                <div>@Html.DisplayFor(model => model.Code)</div>
+            </div>
+            <div style="margin-top: 15px">
+                @Html.LabelFor(model => model.Description)
+                <div>
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @style = "width: 50%" } })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>
+            <div style="margin-top: 10px">
+                @Html.LabelFor(model => model.Catalogs)
+                @if (Model.Catalogs.Count == 0)
+                {
+                    <span class="no-item-message">No associated catalogs</span>
+                }
+                else
+                {
+                    <ul>
+                        @foreach (var catalog in Model.Catalogs)
+                        {
+                            <li>@Html.DisplayFor(modelItem => catalog.Text)</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

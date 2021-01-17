@@ -1,0 +1,40 @@
+﻿@model EURISTest.Models.Catalog.CatalogDetailsViewModel
+@{ ViewBag.Title = "Catalog Details"; }
+
+<div class="euris-panel">
+    <div class="header">
+        Catalog details
+    </div>
+    <div class="toolbar">
+        <input type="button" value="Back" class="button button-primary" onclick="location.href='@Url.Action("Index")'" />
+        <input type="button" value="Edit" class="button button-primary" onclick="location.href='@Url.Action("Edit", new { code = Model.Catalog.Code })'" />
+        <input type="button" value="Delete" class="button button-danger" onclick="location.href='@Url.Action("Delete", new { code = Model.Catalog.Code })'" />
+    </div>
+    <div class="body">
+        <div>
+            @Html.LabelFor(model => model.Catalog.Code)
+            <div>@Html.DisplayFor(model => model.Catalog.Code)</div>
+        </div>
+        <div style="margin-top: 10px">
+            @Html.LabelFor(model => model.Catalog.Description)
+            <div>@Html.DisplayFor(model => model.Catalog.Description)</div>
+        </div>
+        <div style="margin-top: 10px">
+            @Html.LabelFor(model => model.Catalog.Products)
+
+            @if (Model.Catalog.Products.Count == 0)
+            {
+                <span class="no-item-message">No associated products</span>
+            }
+            else
+            {
+                <ul>
+                    @foreach (var product in Model.Catalog.Products)
+                    {
+                        <li>@Html.DisplayFor(modelItem => product.Description)</li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>

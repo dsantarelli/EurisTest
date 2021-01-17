@@ -1,0 +1,52 @@
+﻿@model EURISTest.Models.Product.ProductListViewModel
+@{ ViewBag.Title = "Products"; }
+
+<div class="euris-panel">
+    <div class="header">
+        Products
+    </div>
+    <div class="toolbar">
+        <input type="button" value="Add product" class="button button-primary" onclick="location.href='@Url.Action("Create")'" />
+    </div>
+    <div class="body">
+        <div class="euris-list">
+            @foreach (var item in Model.Products)
+            {
+                <div class="list-item" style="display: flex">
+                    <div class="content" style="flex: 2">
+                        <div>
+                            @Html.LabelFor(model => item.Code)
+                            @Html.DisplayFor(model => item.Code)
+                        </div>
+                        <div>
+                            @Html.LabelFor(model => item.Description)
+                            @Html.DisplayFor(model => item.Description)
+                        </div>
+                    </div>
+                    <div class="content" style="flex: 1">
+                        @Html.LabelFor(model => item.Catalogs)
+                        @if (item.Catalogs.Count == 0)
+                        {
+                            <span class="no-item-message">No associated catalogs</span>
+                        }
+                        else
+                        {
+                            <ul class="no-bullets">
+                                @foreach (var catalog in item.Catalogs)
+                                {
+                                    <li>@Html.DisplayFor(modelItem => catalog.Description)</li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="actions" style="width: 200px;">
+                        @Html.ActionLink("Edit", "Edit", new { code = item.Code }) |
+                        @Html.ActionLink("Details", "Details", new { code = item.Code }) |
+                        @Html.ActionLink("Delete", "Delete", new { code = item.Code })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

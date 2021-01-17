@@ -1,0 +1,43 @@
+﻿@model EURISTest.Models.Product.ProductDeleteViewModel
+@{ ViewBag.Title = "Delete Product"; }
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="euris-panel">
+        <div class="header">
+            Do you confirm to delete this product?
+        </div>
+        <div class="toolbar">
+            <input type="submit" value="Delete" class="button button-danger" />
+            <input type="button" value="Cancel" class="button button-primary" onclick="location.href='@Url.Action("Index")'" />
+        </div>
+        <div class="body">
+            <div>
+                @Html.LabelFor(model => model.Product.Code)
+                <div>@Html.DisplayFor(model => model.Product.Code)</div>
+            </div>
+            <div style="margin-top: 10px">
+                @Html.LabelFor(model => model.Product.Description)
+                <div>@Html.DisplayFor(model => model.Product.Description)</div>
+            </div>
+            <div style="margin-top: 10px">
+                @Html.LabelFor(model => model.Product.Catalogs)
+                @if (Model.Product.Catalogs.Count == 0)
+                {
+                    <span class="no-item-message">No associated catalogs</span>
+                }
+                else
+                {
+                    <ul>
+                        @foreach (var catalog in Model.Product.Catalogs)
+                        {
+                            <li>@Html.DisplayFor(modelItem => catalog.Description)</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+}

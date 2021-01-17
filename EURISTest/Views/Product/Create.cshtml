@@ -1,0 +1,37 @@
+﻿@model EURISTest.Models.Product.ProductCreateViewModel
+@{ ViewBag.Title = "Create Product"; }
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="euris-panel">
+        <div class="header">
+            Create Product
+        </div>
+        <div class="toolbar">
+            <input type="submit" value="Save" class="button button-success" />
+            <input type="button" value="Cancel" class="button button-primary" onclick="location.href='@Url.Action("Index")'" />
+        </div>
+        <div class="body">
+            <div>
+                @Html.LabelFor(model => model.Code)
+                <div>
+                    @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @style = "width: 50%" } })
+                    @Html.ValidationMessageFor(model => model.Code)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Description)
+                <div>
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @style = "width: 50%" } })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>           
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

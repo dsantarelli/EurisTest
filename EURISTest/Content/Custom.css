@@ -1,0 +1,79 @@
+﻿.euris-panel {
+    margin-top: 20px;
+    border: 1px solid #aaa;
+}
+
+    .euris-panel .header {
+        padding: 10px;
+        background-color: #27304a;
+        color: #fff;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    .euris-panel .toolbar {
+        display: flex;
+        flex-direction: row;
+        background-color: #f2f2f2;
+        padding: 5px 10px 5px 15px;
+    }
+
+        .euris-panel .toolbar .button {
+            border-radius: 5px;
+        }
+
+        .euris-panel .toolbar .button-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .euris-panel .toolbar .button-success {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .euris-panel .toolbar .button-danger {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+    .euris-panel .body {
+        padding: 20px;
+        background-color: #fff;
+    }
+
+
+.euris-list {
+}
+    .euris-list .list-item {
+        padding: 10px;
+        margin: 5px 0px 10px 0px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        -webkit-box-shadow: 3px 3px 3px 0px rgba(232,232,232,1);
+        -moz-box-shadow: 3px 3px 3px 0px rgba(232,232,232,1);
+        box-shadow: 3px 3px 3px 0px rgba(232,232,232,1);
+    }
+
+        .euris-list .list-item .content {
+            padding-right: 10px;
+        }
+
+        .euris-list .list-item .actions {
+            vertical-align: top;
+            text-align: right
+        }
+
+ul.no-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.no-item-message {
+    font-style: italic;
+    color: #999999;
+}
