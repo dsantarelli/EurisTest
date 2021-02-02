@@ -1,5 +1,5 @@
 # EurisTest
-Gruppo EURIS test C# - ASP.NET MVC
+ASP.NET MVC
 
 ## Code highlights
 * Used the Entity Framework **Code First** approach to perform data access.
